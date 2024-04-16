@@ -5,3 +5,5 @@ environments:
   rootService2:
     name: nullService2
     templateName: 'null resource'
+settings:
+  environmentRemovalStrategy: 'destroy'
