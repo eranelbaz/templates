@@ -1,0 +1,9 @@
+
+version: 2
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - name: Running initialization scripts
+          run: |
+            exit 1
