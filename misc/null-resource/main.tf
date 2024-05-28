@@ -1,6 +1,6 @@
 resource "null_resource" "null" {
 }
 
-output "asdjklh" {
-  value = "asdf;klasdf"
+output "This is my output" {
+  value = "Value val"
 }
