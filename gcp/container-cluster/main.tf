@@ -17,6 +17,8 @@ resource "google_container_cluster" "primary" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
+
+
   resource_labels = {
     my_label_1 = "label-1"
     my_label_1a = "label-1a"
