@@ -4,4 +4,6 @@ deploy:
   steps:
     terraformInit:
       before:
-        - name: ls -la
+        - name: s
+          run: |
+            ls -la
