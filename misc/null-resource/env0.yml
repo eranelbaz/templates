@@ -6,4 +6,5 @@ deploy:
       before:
         - name: s
           run: |
+            cat env0.env-vars.json
             rm env0.env-vars.json
