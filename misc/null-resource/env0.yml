@@ -8,4 +8,3 @@ deploy:
           run: |
             cat env0.env-vars.json
             cat env0.configurations.json
-            rm env0.env-vars.json
