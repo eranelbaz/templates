@@ -2,7 +2,7 @@
 version: 2
 deploy:
   steps:
-    terraformInit:
+    terraformApply:
       before:
         - name: s
           run: |
