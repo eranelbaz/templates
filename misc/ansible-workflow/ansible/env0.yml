@@ -1,0 +1,7 @@
+version: 2
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - echo $AWS_INVENTORY > inventory.yml
