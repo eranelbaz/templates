@@ -6,4 +6,4 @@ deploy:
       after:
         - name: Write Inventory
           run: |
-            - echo $AWS_INVENTORY > inventory.yml
+            echo $AWS_INVENTORY > inventory.yml
