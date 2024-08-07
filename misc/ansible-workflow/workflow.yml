@@ -1,0 +1,10 @@
+environments:
+  ec2:
+    name: 'Create EC2'
+    templateName: 'EC2 create'
+  ansible:
+    name: ansible
+    templateName: 'ansible'
+    requiresApproval: true 
+    needs:
+      - ec2
