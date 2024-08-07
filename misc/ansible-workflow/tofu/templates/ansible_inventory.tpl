@@ -1,4 +1,1 @@
-[${group_name}]
-%{ for instance in instances ~}
-${instance.private_ip}
-%{ endfor ~}
+[${group_name}]\n%{ for instance in instances ~}\n${instance.private_ip}\n%{ endfor ~}
