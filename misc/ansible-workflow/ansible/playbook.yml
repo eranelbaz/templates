@@ -1,0 +1,6 @@
+---
+- name: Ping all hosts in the ExampleGroup
+  hosts: ExampleGroup
+  tasks:
+    - name: Ping the hosts
+      ansible.builtin.ping:
