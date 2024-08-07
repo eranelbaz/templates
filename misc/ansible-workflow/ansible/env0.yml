@@ -4,4 +4,8 @@ deploy:
   steps:
     setupVariables:
       after:
-        - echo $AWS_INVENTORY > inventory.yml
+        - name: Write Inventory
+          run: |
+            - echo $AWS_INVENTORY > inventory.yml
+            - ls
+            - cat inventory.yml
