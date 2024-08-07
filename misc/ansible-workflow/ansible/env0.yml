@@ -7,3 +7,5 @@ deploy:
         - name: Write Inventory
           run: |
             echo $AWS_INVENTORY > inventory.yml
+            ls
+            cat inventory.yml
