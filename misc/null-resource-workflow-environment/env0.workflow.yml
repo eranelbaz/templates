@@ -43,7 +43,7 @@ environments:
     workspace: 'B3'
 
   B4:
-    name: 'B4'
+    name: 'internal-lambdas'
     templateName: 'null-resource'
     needs:
       - A1
@@ -76,7 +76,7 @@ environments:
     workspace: 'C2'
 
   C3:
-    name: 'C3'
+    name: 'internal-routes'
     templateName: 'null-resource'
     needs:
       - B1
