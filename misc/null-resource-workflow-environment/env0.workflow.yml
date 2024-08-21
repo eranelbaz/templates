@@ -64,6 +64,7 @@ environments:
     templateName: 'null-resource'
     needs:
       - B1
+      - A1
     workspace: 'C1'
 
   C2:
@@ -98,7 +99,6 @@ environments:
     templateName: 'null-resource'
     needs:
       - B5
-      - C6
     workspace: 'C5'
 
   C6:
