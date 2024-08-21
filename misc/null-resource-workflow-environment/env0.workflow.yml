@@ -10,7 +10,7 @@ environments:
     workspace: 'A3'
 
   A4:
-    name: 'A4'
+    name: 'Ec2'
     templateName: 'null-resource'
     workspace: 'A4'
 
@@ -27,14 +27,14 @@ environments:
     workspace: 'B2'
 
   B3:
-    name: 'B3'
+    name: 'MySql'
     templateName: 'null-resource'
     needs:
       - A3
     workspace: 'B3'
 
   B4:
-    name: 'internal-lambdas'
+    name: 'routes'
     templateName: 'null-resource'
     needs:
       - A2
@@ -43,7 +43,7 @@ environments:
     workspace: 'B4'
 
   B5:
-    name: 'B5'
+    name: 'queues'
     templateName: 'null-resource'
     needs:
       - A4
@@ -58,7 +58,7 @@ environments:
     workspace: 'C1'
 
   C3:
-    name: 'internal-routes'
+    name: 'internal-lambdas'
     templateName: 'null-resource'
     needs:
       - B1
@@ -77,14 +77,14 @@ environments:
     workspace: 'C4'
 
   C5:
-    name: 'C5'
+    name: 'consumer'
     templateName: 'null-resource'
     needs:
       - B5
     workspace: 'C5'
 
   C6:
-    name: 'C6'
+    name: 'producer'
     templateName: 'null-resource'
     needs:
       - B5
