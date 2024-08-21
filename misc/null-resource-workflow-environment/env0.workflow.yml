@@ -1,10 +1,109 @@
 environments:
-  first-alias:
-    name: first-name
-    templateName: 'null-resource-1'
-  second-alias:
-    name: second-name
-    templateName: 'null-resource-2'
-    needs: [ first-alias ]
-settings:
-  environmentRemovalStrategy: destroy
+  A1:
+    name: 'A1'
+    templateName: 'null-resource'
+    workspace: 'A1'
+
+  A2:
+    name: 'A2'
+    templateName: 'null-resource'
+    workspace: 'A2'
+
+  A3:
+    name: 'A3'
+    templateName: 'null-resource'
+    workspace: 'A3'
+
+  A4:
+    name: 'A4'
+    templateName: 'null-resource'
+    workspace: 'A4'
+
+  B1:
+    name: 'B1'
+    templateName: 'null-resource'
+    needs:
+      - A1
+    workspace: 'B1'
+
+  B2:
+    name: 'B2'
+    templateName: 'null-resource'
+    needs:
+      - A1
+      - A4
+    workspace: 'B2'
+
+  B3:
+    name: 'B3'
+    templateName: 'null-resource'
+    needs:
+      - A1
+      - A3
+    workspace: 'B3'
+
+  B4:
+    name: 'B4'
+    templateName: 'null-resource'
+    needs:
+      - A1
+      - A2
+      - A3
+      - A4
+    workspace: 'B4'
+
+  B5:
+    name: 'B5'
+    templateName: 'null-resource'
+    needs:
+      - A4
+    workspace: 'B5'
+
+  C1:
+    name: 'C1'
+    templateName: 'null-resource'
+    needs:
+      - B1
+    workspace: 'C1'
+
+  C2:
+    name: 'C2'
+    templateName: 'null-resource'
+    needs:
+      - B1
+      - B4
+    workspace: 'C2'
+
+  C3:
+    name: 'C3'
+    templateName: 'null-resource'
+    needs:
+      - B1
+      - B2
+      - B3
+      - B4
+      - B5
+    workspace: 'C3'
+
+  C4:
+    name: 'C4'
+    templateName: 'null-resource'
+    needs:
+      - B3
+      - B4
+    workspace: 'C4'
+
+  C5:
+    name: 'C5'
+    templateName: 'null-resource'
+    needs:
+      - B5
+      - C6
+    workspace: 'C5'
+
+  C6:
+    name: 'C6'
+    templateName: 'null-resource'
+    needs:
+      - B6
+    workspace: 'C6'
