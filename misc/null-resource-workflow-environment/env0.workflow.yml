@@ -1,9 +1,4 @@
 environments:
-  A1:
-    name: 'outbound-vpc'
-    templateName: 'null-resource'
-    workspace: 'A1'
-
   A2:
     name: 'inbound-vpc'
     templateName: 'null-resource'
@@ -22,15 +17,12 @@ environments:
   B1:
     name: 'outbound-vpc-security-groups'
     templateName: 'null-resource'
-    needs:
-      - A1
     workspace: 'B1'
 
   B2:
     name: 'analytics'
     templateName: 'null-resource'
     needs:
-      - A1
       - A4
     workspace: 'B2'
 
@@ -38,7 +30,6 @@ environments:
     name: 'B3'
     templateName: 'null-resource'
     needs:
-      - A1
       - A3
     workspace: 'B3'
 
@@ -46,7 +37,6 @@ environments:
     name: 'internal-lambdas'
     templateName: 'null-resource'
     needs:
-      - A1
       - A2
       - A3
       - A4
