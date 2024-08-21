@@ -68,14 +68,6 @@ environments:
       - B5
     workspace: 'C3'
 
-  C4:
-    name: 'C4'
-    templateName: 'null-resource'
-    needs:
-      - B3
-      - B4
-    workspace: 'C4'
-
   C5:
     name: 'consumer'
     templateName: 'null-resource'
