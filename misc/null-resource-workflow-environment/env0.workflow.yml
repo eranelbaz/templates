@@ -105,5 +105,5 @@ environments:
     name: 'C6'
     templateName: 'null-resource'
     needs:
-      - B6
+      - B5
     workspace: 'C6'
