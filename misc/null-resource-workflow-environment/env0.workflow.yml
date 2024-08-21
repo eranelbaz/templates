@@ -1,11 +1,11 @@
 environments:
   A1:
-    name: 'A1'
+    name: 'outbound-vpc'
     templateName: 'null-resource'
     workspace: 'A1'
 
   A2:
-    name: 'A2'
+    name: 'inbound-vpc'
     templateName: 'null-resource'
     workspace: 'A2'
 
@@ -20,7 +20,7 @@ environments:
     workspace: 'A4'
 
   B1:
-    name: 'B1'
+    name: 'outbound-vpc-security-groups'
     templateName: 'null-resource'
     needs:
       - A1
@@ -60,7 +60,7 @@ environments:
     workspace: 'B5'
 
   C1:
-    name: 'C1'
+    name: 'outbound-vpc-routes'
     templateName: 'null-resource'
     needs:
       - B1
