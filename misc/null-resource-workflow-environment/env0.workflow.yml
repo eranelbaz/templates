@@ -5,12 +5,12 @@ environments:
     workspace: 'A2'
 
   A3:
-    name: 'A3'
+    name: 'authentication'
     templateName: 'null-resource'
     workspace: 'A3'
 
   A4:
-    name: 'Ec2'
+    name: 'ec2'
     templateName: 'null-resource'
     workspace: 'A4'
 
