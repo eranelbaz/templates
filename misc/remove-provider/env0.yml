@@ -7,14 +7,15 @@ deploy:
           run: |
             #!/bin/bash
             PROVIDER_FILE="provider.tf"
-            cat provider.tf
-            # Remove assume_role block (handles spacing & multi-line removal)
+
+            # Use awk to properly remove assume_role block including all its contents
             awk '
-            /assume_role {/ { in_block=1; next }
-            /}/ { if (in_block) { in_block=0; next } }
-            !in_block { print }
+            /assume_role[[:space:]]*\{/ { in_block=1; next }  # Match "assume_role {", handling spaces
+            in_block && /^\s*\}/ { in_block=0; next }         # Match closing "}"
+            !in_block { print }                              # Print all lines outside the block
             ' "$PROVIDER_FILE" > temp.tf && mv temp.tf "$PROVIDER_FILE"
-            
+
             echo "Removed assume_role block from $PROVIDER_FILE"
-            echo "Removed assume_role block from $PROVIDER_FILE"
-            cat provider.tf
+
+            # Print final file for debugging
+            cat "$PROVIDER_FILE"
