@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PROVIDER_FILE="provider.tf"
+
+cat provider.tf
+
+# Remove assume_role block (handles spacing & multi-line removal)
+sed -i '/assume_role {/,/}/d' "$PROVIDER_FILE"
+
+echo "Removed assume_role block from $PROVIDER_FILE"
+
+cat provider.tf
