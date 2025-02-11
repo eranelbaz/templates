@@ -1,6 +1,7 @@
 version: 2  
 deploy:
-  terraformInit:
-    before:
-      - name: Remove Assume Role
-        run: ./remove_assume_role.sh
+  steps:
+    terraformInit:
+      before:
+        - name: Remove Assume Role
+          run: ./remove_assume_role.sh
