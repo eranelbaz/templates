@@ -7,14 +7,12 @@ terraform {
   }
 }
 
-variable "env0_api_key" {
-  description = "The service account to assign roles to"
-  type        = string
-}
+variable "env0_api_key" {}
+variable "env0_api_secret" {}
 
-variable "env0_api_secret" {
-  description = "The service account to assign roles to"
-  type        = string
+provider "env0" {
+  api_key    = var.env0_api_key
+  api_secret = var.env0_api_secret
 }
 
 
