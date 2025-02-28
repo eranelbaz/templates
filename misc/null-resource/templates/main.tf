@@ -1,13 +1,3 @@
-terraform {
-  required_providers {
-    env0 = {
-      source = "env0/env0"
-      version = "1.24.7"
-    }
-  }
-}
-
-
 variable "service_account" {
   description = "The service account to assign roles to"
   type        = string
