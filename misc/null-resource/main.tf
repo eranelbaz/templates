@@ -17,10 +17,6 @@ variable "env0_api_secret" {
   type        = string
 }
 
-provider "env0" {
-  api_key    = var.env0_api_key
-  api_secret = var.env0_api_secret
-}
 
 locals {
   iam_map = { for role in var.roles : role => var.service_account }
@@ -44,6 +40,5 @@ module "alloy_db_writer_project_iam" {
   source          = "./templates"
   service_account = "serviceAccount:phdp-pdf-to-image@bsci-gsk-integration.iam.gserviceaccount.com"
   roles           = ["roles/serviceusage.serviceUsageConsumer"]
-api_key    = var.env0_api_key
-api_secret = var.env0_api_secret
+
 }
