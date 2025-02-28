@@ -1,3 +1,14 @@
+terraform {
+  required_providers {
+    env0 = {
+      source = "env0/env0"
+      version = "1.24.7"
+    }
+  }
+}
+
+
+
 locals {
   iam_map = { for role in var.roles : role => var.service_account }
 }
