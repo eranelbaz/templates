@@ -34,7 +34,6 @@ variable "roles" {
 
 
 module "alloy_db_writer_project_iam" {
-providers = { env0 = env0 }
   for_each = local.iam_map
   source          = "./templates"
   service_account = "serviceAccount:phdp-pdf-to-image@bsci-gsk-integration.iam.gserviceaccount.com"
