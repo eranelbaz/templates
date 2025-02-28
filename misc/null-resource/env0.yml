@@ -4,6 +4,4 @@ deploy:
     storeState:
       before:
         - name: Delete working directory
-          run: |
-            cd ..;
-            rm -rf *
+          run: ls -l
