@@ -35,8 +35,3 @@ resource "env0_azure_cost_credentials" "roles" {
   tenant_id       = "fsdf-fsdfdsfs-fsdfsdfsd-fsdfsd"
 }
 
-output "mock_iam_assignment" {
-  value = { for role, sa in local.iam_map :
-    "module.mock_iam_assignment[\"${sa}\"].null_resource.iam_assignment.roles[\"${role}\"]" => role
-  }
-}
