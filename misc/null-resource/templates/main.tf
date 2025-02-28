@@ -13,17 +13,13 @@ locals {
   iam_map = { for role in var.roles : role => var.service_account }
 }
 
-resource "null_resource" "roles" {
+resource "env0_azure_cost_credentials" "roles" {
   for_each = local.iam_map
-
-  triggers = {
-    service_account = each.value
-    role            = each.key
-  }
-
-  provisioner "local-exec" {
-    command = "echo Assigning role ${each.key} to ${each.value}"
-  }
+  name            = "cost credentials"
+  client_id       = "client id"
+  client_secret   = "client secret"
+  subscription_id = "43242342dsdfsdfsdf"
+  tenant_id       = "fsdf-fsdfdsfs-fsdfsdfsd-fsdfsd"
 }
 
 output "mock_iam_assignment" {
