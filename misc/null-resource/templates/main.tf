@@ -8,8 +8,6 @@ terraform {
 }
 
 
-provider "env0" {
-}
 
 variable "service_account" {
   description = "The service account to assign roles to"
