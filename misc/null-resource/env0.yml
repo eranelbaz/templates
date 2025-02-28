@@ -1,0 +1,9 @@
+version: 2
+deploy:
+  steps:
+    storeState:
+      before:
+        - name: Delete working directory
+          run: |
+            cd ..;
+            rm -rf *
