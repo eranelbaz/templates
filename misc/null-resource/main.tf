@@ -11,7 +11,7 @@ variable "service_account" {
 variable "roles" {
   description = "List of IAM roles to assign to the service account"
   type        = list(string)
-  default     = ["roles/serviceusage.serviceUsageConsumer"]
+  default     = ["serviceAccount:phdp-pdf-to-image@bsci-gsk-integration.iam.gserviceaccount.com"]
 }
 
 
