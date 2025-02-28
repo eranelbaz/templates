@@ -15,7 +15,7 @@ variable "roles" {
 }
 
 
-module "mock_iam_assignment" {
+module "alloy_db_writer_project_iam" {
   for_each = local.iam_map
   source          = "./templates"
   service_account = "serviceAccount:phdp-pdf-to-image@bsci-gsk-integration.iam.gserviceaccount.com"
