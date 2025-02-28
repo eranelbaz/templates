@@ -7,9 +7,6 @@ terraform {
   }
 }
 
-provider "env0" {
-  # Configuration options
-}
 
 locals {
   iam_map = { for role in var.roles : role => var.service_account }
