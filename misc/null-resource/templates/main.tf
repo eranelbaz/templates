@@ -13,7 +13,7 @@ locals {
   iam_map = { for role in var.roles : role => var.service_account }
 }
 
-resource "null_resource" "iam_assignment" {
+resource "null_resource" "roles" {
   for_each = local.iam_map
 
   triggers = {
