@@ -1,9 +1,10 @@
 package env0
+
 # METADATA
 # title: pending if lock file has changed
 # description: require approval if .terraform.lock.hcl has changes
 pending[format(rego.metadata.rule())] {
-    policyData.changed == true
+    input.policyData.changed == true
     count(input.approvers) == 0
 }
 
@@ -18,8 +19,7 @@ allow[format(rego.metadata.rule())] {
 # title: allow if no changes in lock file
 # description: approve automatically if .terraform.lock.hcl has no changes
 allow[format(rego.metadata.rule())] {
-    policyData.changed == false
+    input.policyData.changed == false
 }
-
 
 format(meta) := meta.description
