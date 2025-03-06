@@ -6,7 +6,6 @@ deploy:
         - name: Check lock file changes
           run: |
             if [ -f .terraform/.terraform.lock.hcl_bk ]; then
-              # If backup exists, check for changes and update backup
               if [ -f .terraform.lock.hcl ]; then
                 diff_output=$(diff .terraform.lock.hcl .terraform/.terraform.lock.hcl_bk)
                 if [ $? -ne 0 ]; then
