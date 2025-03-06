@@ -27,3 +27,4 @@ deploy:
               echo "No lock file to compare."
               echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH  # Use ENV0_POLICY_DATA_PATH
             fi
+            ls -l
