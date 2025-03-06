@@ -1,9 +1,5 @@
 version: 2
 deploy:
-  environmentVariables:
-    - name: ENV0_POLICY_DATA_PATH
-      value: /tmp/changes.json  # Dynamically set the policy data path
-
   steps:
     terraformInit:
       after:
