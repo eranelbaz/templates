@@ -21,5 +21,8 @@ deploy:
                 echo "No .terraform.lock.hcl file to compare."
                 echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH
               fi
+            else
+            echo "No backup lock file found first run."
+              echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH
             fi
             cp .terraform.lock.hcl .terraform/.terraform.lock.hcl_bk
