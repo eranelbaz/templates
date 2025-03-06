@@ -6,7 +6,7 @@ deploy:
         - name: Backup lock file if it exists
           run: |
             if [ -f .terraform.lock.hcl ]; then
-              cp .terraform.lock.hcl .terraform.lock.hcl_bk
+              cp .terraform.lock.hcl .terraform/.terraform.lock.hcl_bk
             else
               touch .terraform.lock.hcl_bk  # Create an empty backup file if the lock file doesn't exist
             fi
@@ -14,7 +14,7 @@ deploy:
         - name: Check lock file changes
           run: |
             if [ -f .terraform.lock.hcl_bk ] && [ -f .terraform.lock.hcl ]; then
-              diff_output=$(diff .terraform.lock.hcl .terraform.lock.hcl_bk)
+              diff_output=$(diff .terraform.lock.hcl .terraform/.terraform.lock.hcl_bk)
               if [ $? -ne 0 ]; then
                 echo "Lock file has changed:"
                 echo "$diff_output"
