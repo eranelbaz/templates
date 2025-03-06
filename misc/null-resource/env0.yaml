@@ -1,0 +1,12 @@
+version: 2
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - name: Backup lock file
+          run: |
+            cp .terraform.lock.hcl .terraform.lock.hcl_bk
+      after:
+        - name: Check lock file changes
+          run : |
+            diff .terraform.lock.hcl .terraform.lock.hcl_bk
