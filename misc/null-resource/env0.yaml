@@ -3,10 +3,18 @@ deploy:
   steps:
     terraformInit:
       before:
-        - name: Backup lock file
+        - name: Backup lock file if it exists
           run: |
-            cp .terraform.lock.hcl .terraform.lock.hcl_bk
+            if [ -f .terraform.lock.hcl ]; then
+              cp .terraform.lock.hcl .terraform.lock.hcl_bk
+            else
+              touch .terraform.lock.hcl_bk  # Create an empty backup file if the lock file doesn't exist
+            fi
       after:
         - name: Check lock file changes
-          run : |
-            diff .terraform.lock.hcl .terraform.lock.hcl_bk
+          run: |
+            if [ -f .terraform.lock.hcl_bk ] && [ -f .terraform.lock.hcl ]; then
+              diff .terraform.lock.hcl .terraform.lock.hcl_bk
+            else
+              echo "No lock file to compare."
+            fi
