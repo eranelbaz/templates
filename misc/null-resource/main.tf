@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source = "opentofu/aws"
-      version = "> 5.87.0"
+      version = "5.87.0"
     }
   }
 }
