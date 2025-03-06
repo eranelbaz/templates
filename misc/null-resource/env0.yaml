@@ -2,12 +2,15 @@ version: 2
 deploy:
   steps:
     terraformInit:
+      before:
+        - name: Backup lock file
+          run: cp .terraform.lock.hcl .terraform.lock.hcl_bk
       after:
         - name: Check lock file changes
           run: |
-            if [ -f .terraform/.terraform.lock.hcl_bk ]; then
+            if [ -f .terraform.lock.hcl_bk ]; then
               if [ -f .terraform.lock.hcl ]; then
-                diff_output=$(diff .terraform.lock.hcl .terraform/.terraform.lock.hcl_bk)
+                diff_output=$(diff .terraform.lock.hcl .terraform.lock.hcl_bk)
                 if [ $? -ne 0 ]; then
                   echo "Lock file has changed:"
                   echo "$diff_output"
@@ -21,7 +24,6 @@ deploy:
                 echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH
               fi
             else
-            echo "No backup lock file found first run."
+              echo "No backup lock file found"
               echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH
             fi
-            cp .terraform.lock.hcl .terraform/.terraform.lock.hcl_bk
