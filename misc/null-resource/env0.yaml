@@ -14,7 +14,13 @@ deploy:
         - name: Check lock file changes
           run: |
             if [ -f .terraform.lock.hcl_bk ] && [ -f .terraform.lock.hcl ]; then
-              diff .terraform.lock.hcl .terraform.lock.hcl_bk
+              diff_output=$(diff .terraform.lock.hcl .terraform.lock.hcl_bk)
+              if [ $? -ne 0 ]; then
+                echo "Lock file has changed:"
+                echo "$diff_output"
+              else
+                echo "No changes in the lock file."
+              fi
             else
               echo "No lock file to compare."
             fi
