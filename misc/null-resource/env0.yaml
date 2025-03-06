@@ -18,9 +18,11 @@ deploy:
               if [ $? -ne 0 ]; then
                 echo "Lock file has changed:"
                 echo "$diff_output"
+                echo '{"changed": true}' > $ENV0_POLICY_DATA_PATH  # Use ENV0_POLICY_DATA_PATH
               else
                 echo "No changes in the lock file."
+                echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH  # Use ENV0_POLICY_DATA_PATH
               fi
             else
               echo "No lock file to compare."
-            fi
+              echo '{"changed": false}' > $ENV0_POLICY_DATA_PATH  # Use ENV0_POLICY_DATA_PATH
