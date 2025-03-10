@@ -15,12 +15,11 @@ environments:
       path: 'misc/workflows/environment-outputs/eks'
     needs:
       - vnet
-  flux:
-    name: 'Flux installation'
+  Backstage:
+    name: 'Backstage installation'
     vcs:
-      type: 'terraform'
-      terraformVersion: '1.5.7'
+      type: 'helm'
       repository: 'https://github.com/eranelbaz/templates'
       path: 'misc/workflows/environment-outputs/flux'
     needs:
-      - aks
+      - eks
