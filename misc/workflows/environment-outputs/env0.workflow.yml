@@ -15,11 +15,11 @@ environments:
       path: 'misc/workflows/environment-outputs/eks'
     needs:
       - vnet
-  Backstage:
-    name: 'Backstage installation'
+  Helm:
+    name: 'Helm installation'
     vcs:
       type: 'helm'
       repository: 'https://github.com/eranelbaz/templates'
-      path: 'misc/workflows/environment-outputs/flux'
+      path: 'misc/workflows/environment-outputs/helm'
     needs:
       - eks
