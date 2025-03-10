@@ -2,7 +2,7 @@ environments:
   vnet: 
     name: 'Virtual Network'
     vcs:
-      type: 'tofu'
+      type: 'opentofu'
       opentofuVersion: '1.9.0'
       repository: 'https://github.com/eranelbaz/templates'
       path: 'misc/workflows/environment-outputs/network'
