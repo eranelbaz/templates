@@ -19,7 +19,7 @@ environments:
     name: 'Helm installation'
     vcs:
       type: 'helm'
-      repository: 'https://github.com/eranelbaz/templates'
-      path: 'misc/workflows/environment-outputs/helm'
+      repository: 'https://github.com/helm/examples.git'
+      path: 'charts/hello-world'
     needs:
       - eks
