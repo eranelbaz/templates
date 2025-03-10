@@ -8,7 +8,7 @@ output "subnet_ids" {
   }
 }
 
-output "vnet_id" {
-  description = "VNet ID."
-  value       = "vnet-12345678"
+output "vpc_id" {
+  description = "VPC ID."
+  value       = "vpc-12345678"
 }
