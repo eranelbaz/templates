@@ -6,13 +6,13 @@ environments:
       opentofuVersion: '1.9.0'
       repository: 'https://github.com/eranelbaz/templates'
       path: 'misc/workflows/environment-outputs/network'
-  aks:
-    name: 'AKS Cluster'
+  eks:
+    name: 'EKS Cluster'
     vcs:
-      type: 'terraform'
-      terraformVersion: '1.5.7'
+      type: 'opentofu'
+      opentofuVersion: '1.9.0'
       repository: 'https://github.com/eranelbaz/templates'
-      path: 'misc/workflows/environment-outputs/aks'
+      path: 'misc/workflows/environment-outputs/eks'
     needs:
       - vnet
   flux:
