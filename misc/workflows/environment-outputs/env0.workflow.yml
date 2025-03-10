@@ -1,9 +1,26 @@
 environments:
-  first:
-    name: "first"
-    templateName: "null create output"
-  second:
-    name: "second"
-    templateName: "null validate input"
+  vnet: 
+    name: 'Virtual Network'
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/eranelbaz/templates'
+      path: 'misc/workflows/environment-outputs/network'
+  aks:
+    name: 'AKS Cluster'
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/eranelbaz/templates'
+      path: 'misc/workflows/environment-outputs/aks'
     needs:
-      - first
+      - vnet
+  flux:
+    name: 'Flux installation'
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/eranelbaz/templates'
+      path: 'misc/workflows/environment-outputs/flux'
+    needs:
+      - aks
