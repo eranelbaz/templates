@@ -15,7 +15,25 @@ environments:
       path: 'misc/workflows/environment-outputs/eks'
     needs:
       - vnet
-  Helm:
+  loadBalancer:
+    name: 'Balancer'
+    vcs:
+      type: 'opentofu'
+      opentofuVersion: '1.9.0'
+      repository: 'https://github.com/eranelbaz/templates'
+      path: 'misc/workflows/environment-outputs/loadBalancer'
+    needs:
+      - vnet
+  storage:
+    name: 'Storage'
+    vcs:
+      type: 'opentofu'
+      opentofuVersion: '1.9.0'
+      repository: 'https://github.com/eranelbaz/templates'
+      path: 'misc/workflows/environment-outputs/storage'
+    needs:
+      - vnet
+  helm:
     name: 'Helm installation'
     vcs:
       type: 'helm'
@@ -23,3 +41,5 @@ environments:
       path: 'charts/hello-world'
     needs:
       - eks
+      - storage
+      - loadBalancer
