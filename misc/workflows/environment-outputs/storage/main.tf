@@ -1,6 +1,6 @@
 output "storage_bucket_name" {
   description = "Name of the storage bucket."
-  value       = "demo-${random_string.random.result}-${var.bucket_name}"
+  value       = "demo-${random_string.random.result}-${var.name}"
 }
 
 resource "random_string" "random" {
@@ -8,6 +8,6 @@ resource "random_string" "random" {
   special          = false
 }
 
-variable "bucket_name" {
+variable "name" {
   description = "The name of the bucket"
 }
