@@ -33,7 +33,7 @@ environments:
       path: 'misc/workflows/environment-outputs/storage'
     needs:
       - vnet
-  helm2:
+  helm:
     name: 'Helm installation'
     vcs:
       type: 'helm'
