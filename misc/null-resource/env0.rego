@@ -17,9 +17,6 @@ allow[format(rego.metadata.rule())] {
   input.deploymentRequest.triggerName = "comment"
   input.deploymentRequest.type = "deploy"
   count(input.approvers) >= 1
-} {
-  # Auto approve if it's not a comment trigger
-  input.deploymentRequest.triggerName != "comment"
 }
 
 format(meta) := meta.description
