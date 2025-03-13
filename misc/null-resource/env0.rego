@@ -2,10 +2,10 @@ package env0
 
 # METADATA
 # title: Require Approval
-# description: Returns pending if input.variabls.env0.ENV0_PR_SOURCE_BRANCH exists and no approvers are present
+# description: Returns pending if deploy from a comment
 pending[format(rego.metadata.rule())] {
   input.deploymentRequest.triggerName = "comment"
-  input.deploymentRequest.triggerName = "deploy"
+  input.deploymentRequest.type = "deploy"
   count(input.approvers) < 1
 }
 
