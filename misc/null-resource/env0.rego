@@ -4,7 +4,8 @@ package env0
 # title: Require Approval
 # description: Returns pending if input.variabls.env0.ENV0_PR_SOURCE_BRANCH exists and no approvers are present
 pending[format(rego.metadata.rule())] {
-  input.variables.env0.ENV0_PR_SOURCE_BRANCH != ""
+  input.deploymentRequest.triggerName = "comment"
+  input.deploymentRequest.triggerName = "deploy"
   count(input.approvers) < 1
 }
 
