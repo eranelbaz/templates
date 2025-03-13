@@ -12,17 +12,17 @@ pending[format(rego.metadata.rule())] {
 # title: Allow if got approved
 # description: Returns allow if comment with resume
 allow[format(rego.metadata.rule())] {
-  input.deploymentRequest.triggerName = "comment"
+
   input.deploymentRequest.type = "deployResume"
 }
 
 
-# METADATA
-# title: Allow if got approved
-# description: Return allow if user
-allow[format(rego.metadata.rule())] {
-  input.deploymentRequest.triggerName = "user"
-}
+## METADATA
+## title: Allow if got approved
+## description: Return allow if user
+#allow[format(rego.metadata.rule())] {
+#  input.deploymentRequest.triggerName = "user"
+#}
 
 
 
