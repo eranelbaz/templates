@@ -2,11 +2,10 @@ package env0
 
 # METADATA
 # title: Require Approval
-# description: Returns pending if deploy from a comment or user
+# description: Returns pending if deploy from a comment with deploy
 pending[format(rego.metadata.rule())] {
   input.deploymentRequest.triggerName = "comment"
   input.deploymentRequest.type = "deploy"
-  count(input.approvers) < 1
 }
 
 # METADATA
@@ -20,7 +19,7 @@ allow[format(rego.metadata.rule())] {
 
 # METADATA
 # title: Allow if got approved
-# description: 2Returns allow if approvers are present for comment or user triggered deployments
+# description: Return allow if user
 allow[format(rego.metadata.rule())] {
   input.deploymentRequest.triggerName = "user"
 }
