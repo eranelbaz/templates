@@ -1,0 +1,9 @@
+version: 2
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - name: cat file
+          run: |
+            cat main.tf
