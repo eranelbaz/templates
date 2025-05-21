@@ -7,3 +7,12 @@ environments:
     templateName: "null validate input"
     needs:
       - first
+  third:
+    name: "third"
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/eranelbaz/templates'
+      path: 'misc/environment-outputs/inputs'
+    needs:
+      - first
