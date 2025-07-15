@@ -6,5 +6,6 @@ environments:
     name: second-name
     templateName: 'null-resource-2'
     needs: [ first-alias ]
+    requiresApproval: true
 settings:
   environmentRemovalStrategy: destroy
