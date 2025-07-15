@@ -1,6 +1,6 @@
 environments:
   first-alias:
-    name: first-name
+    name: first-name-new
     templateName: 'null-resource-1'
   second-alias:
     name: second-name
