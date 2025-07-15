@@ -1,5 +1,5 @@
 environments:
   rootService1:
-    name: nullService1
+    name: nullService13
     templateName: 'null resource'
-    requiresApproval: false
+    requiresApproval: true
