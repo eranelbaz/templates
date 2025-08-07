@@ -1,9 +1,6 @@
 resource "null_resource" "null" {
 }
 
-variable "image_id" {
-  type = string
-}
 
 variable "subnets" {
   type        = list(string)
@@ -21,5 +18,5 @@ variable "allowed_cidr_blocks" {
 }
 
 output "abc" {
-  value = var.image_id
+  value = var.allowed_cidr_blocks
 }
