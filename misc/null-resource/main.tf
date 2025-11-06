@@ -9,4 +9,5 @@ resource "random_password" "password" {
 
 output "pass" {
   value = nonsensitive(random_password.password)
+  sensitive = true
 }
