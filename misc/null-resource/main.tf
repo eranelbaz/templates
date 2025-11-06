@@ -1,5 +1,5 @@
 resource "null_resource" "null" {
-  count = 3
+  count = 5
 }
 
 resource "random_password" "password" {
