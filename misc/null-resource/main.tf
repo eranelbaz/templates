@@ -4,7 +4,7 @@ resource "null_resource" "null" {
 
 resource "random_password" "password" {
   length           = 17
-  special          = true
+  special          = false
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
 
