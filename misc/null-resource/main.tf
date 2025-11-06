@@ -1,14 +1,23 @@
 resource "null_resource" "null" {
-  count = 5
 }
 
-resource "random_password" "password" {
-  length           = 17
-  special          = false
-  override_special = "!#$%&*()-_=+[]{}<>:?"
+terraform {
+  required_providers {
+    env0 = {
+      source = "env0/env0"
+    }
+  }
 }
 
-output "pass" {
-  value = nonsensitive(random_password.password)
-  sensitive = true
+# Configure the env0 provider
+
+provider "env0" {
+  api_key    = var.env0_api_key
+  api_secret = var.env0_api_secret
+}
+
+resource "env0_configuration_variable" "example" {
+  name        = "ENVIRONMENT_VARIABLE_NAME"
+  value       = "example value"
+  description = "Here you can fill description for this variable, note this field have limit of 255 chars"
 }
