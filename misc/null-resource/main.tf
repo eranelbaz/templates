@@ -21,8 +21,10 @@ provider "env0" {
   api_endpoint = var.env0_api_endpoint
 }
 
+```hcl
 resource "env0_configuration_variable" "example" {
   name        = "ENVIRONMENT_VARIABLE_NAME"
-  value       = "example value"
+  value       = "*************"
   description = "Here you can fill description for this variable, note this field have limit of 255 chars"
 }
+```
