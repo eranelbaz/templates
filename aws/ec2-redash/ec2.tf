@@ -4,4 +4,10 @@ resource "aws_instance" "redash-instance" {
   subnet_id = aws_subnet.redash-subnet.*.id[0]
   vpc_security_group_ids = [aws_security_group.redash-sg.id]
   key_name = aws_key_pair.redash-key-pair.key_name
+  
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens = "required"
+    http_put_response_hop_limit = 1
+  }
 }
